@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { HomePage } from './home/home.page';
+import { LoginPage } from './login/login.page';
 
 const routes: Routes = [
   {
@@ -7,9 +9,10 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: 'home/:usuario', component: HomePage
+  },
+  {
+    path: '', redirectTo:'login', pathMatch:'full'
   },
   {
     path: 'login',
