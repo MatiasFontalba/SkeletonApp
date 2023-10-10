@@ -21,11 +21,12 @@
     
       <form [formGroup]="miFormulario">
         <ion-item>
-          <ion-input type="text" label="Usuario" labelPlacement="stacked" placeholder="Ingresa tu nombre de usuario" formControlName="usuario"></ion-input>
+          <ion-input type="text" label="Usuario" labelPlacement="stacked" placeholder="Ingresa tu nombre de usuario" errorText="Usuario invalido" helperText="Ingresa un usuario válido" formControlName="usuario"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="password" label="Contraseña" labelPlacement="stacked" placeholder="Ingresa tu contraseña" formControlName="password"></ion-input>
+          <ion-input type="password" label="Contraseña" labelPlacement="stacked" placeholder="Ingresa tu contraseña" errorText="Contraseña invalida" helperText="Ingresa una contraseña válida" formControlName="password"></ion-input>
         </ion-item>
         <ion-button expand="full" (click)="iniciarSesion()">Iniciar Sesión</ion-button>
       </form>
+      <a style="padding-left: 44%;"  href="">Crea tu cuenta gratis</a>
 </ion-content>

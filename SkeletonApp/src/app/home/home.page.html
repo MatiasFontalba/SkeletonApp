@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      SkeletonApp
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,13 +9,33 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">SkeletonApp</ion-title>
     </ion-toolbar>
   </ion-header>
-  <h1>Bienvenido</h1>
-  <p>bienvenido :{{usuarioRecibido}}</p>
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <h1 style="text-align: center;">Bienvenido</h1>
+  <p style="padding-left: 5%;">Usuario: {{usuarioRecibido}}</p>
+  <h3 style="text-align: center;">Informacion Adicional</h3>
+
+    <form [formGroup]="datosForm">
+      <ion-item>
+        <ion-input type="text" label="Nombre" labelPlacement="stacked" placeholder="Ingresa tu nombre" formControlName="nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" label="Apellido" labelPlacement="stacked" placeholder="Ingresa tu apellido" formControlName="apellido"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-select formControlName="nivelEducativo" placeholder="Seleccionar"> Seleccione
+        <ion-label>Nivel Educativo</ion-label>
+        <ion-select-option value="Primaria">Basica</ion-select-option>
+        <ion-select-option value="Secundaria">Media</ion-select-option>
+        <ion-select-option value="Universidad">Superior</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Fecha de Nacimiento</ion-label>
+        <ion-datatime formControlName="fechaNacimiento" displayFormat="DD/MM/YYYY"></ion-datatime>
+      </ion-item>
+    </form>
+    <ion-button expand="block" style="display: inline-block; padding-left: 30%; margin-right: 10%;" (click)="limpiarCampos()">Limpiar Campos</ion-button>
+    <ion-button expand="block" style="display: inline-block; margin-left: 10%;" (click)="mostrarPopup()">Mostrar</ion-button>
 </ion-content>
