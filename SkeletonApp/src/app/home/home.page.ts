@@ -33,20 +33,22 @@ export class HomePage implements OnInit{
     this.usuarioRecibido = usuario !== null ? usuario : '';
 
     this.startAnimation();
-    this.startAnimationInput();
+    
   }
 
-   async startAnimation(){
-    //Animacion del titulo
-    console.log('Se está ejecutando la animación');
+   async startAnimation(){        //Animacion del titulo
     const titleElement = document.querySelector('.title');
     if (titleElement){
     const titleAnimation = this.animationCtrl.create()
     .addElement(titleElement)
-    .duration(2500)
+    .duration(5000)
     .iterations(Infinity)
     .fromTo('opacity', 0.2, 1)//por lo qye entendi el primer numero es la opacidad y el segundo el tiempo
-    .fromTo('transform', 'translateY(100px)', 'translateX(100px)');
+    .keyframes([
+      { offset: 0, transform: 'translateX(0)' }, // Inicio, sin desplazamiento
+      { offset: 0.5, transform: 'translateX(100%)' }, // Desplazamiento hacia la derecha al 50%
+      { offset: 0.5, transform: 'translateX(-100%)' } // Regreso hacia la izquierda al 100%
+    ]) // Desplazamiento de izquierda a derecha
     console.log('Se ejecuta la animacion');
     
     titleAnimation.play();
@@ -54,7 +56,25 @@ export class HomePage implements OnInit{
 	  console.log("no se encontró elemento en la clase title");
     }
   }
-    
+
+  async startAnimationInput(){     //Animacion de inputs
+    console.log('Input animacion');
+    const inputElement1 = document.querySelector('.input1');
+    const inputElement2 = document.querySelector('.input2');
+    if (inputElement1 && inputElement2){
+    const inputAnimation = this.animationCtrl.create()
+    .addElement(inputElement1)
+    .addElement(inputElement2)
+    .duration(1000)
+    .iterations(1)
+    .fromTo('transform', 'translateX(-12%)', 'translateX(0)');
+    console.log('Ejecucion de inputs');
+  
+    inputAnimation.play();
+   } else{
+    console.log("no se encontró input");
+   }
+  }
 
   limpiarCampos(){
     this.datosForm.reset();
@@ -89,24 +109,4 @@ export class HomePage implements OnInit{
     }
   }
  }
-
- async startAnimationInput(){
-  //Animacion del titulo
-  console.log('Input animacion');
-  const inputElement1 = document.querySelector('.input1');
-  const inputElement2 = document.querySelector('.input2');
-  if (inputElement1 && inputElement2){
-  const inputAnimation = this.animationCtrl.create()
-  .addElement(inputElement1)
-  .addElement(inputElement2)
-  .duration(1000)
-  .iterations(1)
-  .fromTo('transform', 'translateY(200px)', 'translateX(100px)');
-  console.log('Ejecucion de inputs');
-
-  inputAnimation.play();
- } else{
-  console.log("no se encontró input");
- }
-}
 }
