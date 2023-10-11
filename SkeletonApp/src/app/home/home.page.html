@@ -32,8 +32,8 @@
         </ion-select>
       </ion-item>
       <ion-item>
-        <ion-label>Fecha de Nacimiento</ion-label>
-        <ion-datatime formControlName="fechaNacimiento" displayFormat="DD/MM/YYYY"></ion-datatime>
+        <ion-label position="floating">Fecha de Nacimiento</ion-label>
+        <ion-input formControlName="fechaNacimiento" [(ngModel)]="fechaNacimiento" name="fechaNacimiento" type="date" placeholder="Ingrese su fecha de nacimiento" ngModel required></ion-input>
       </ion-item>
     </form>
     <ion-button expand="block" style="display: inline-block; padding-left: 30%; margin-right: 10%;" (click)="limpiarCampos()">Limpiar Campos</ion-button>

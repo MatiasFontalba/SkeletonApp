@@ -11,6 +11,7 @@ import { AlertController } from '@ionic/angular';
 export class HomePage implements OnInit{
   usuarioRecibido: string = '';
   datosForm: FormGroup;
+  fechaNacimiento: string = "";
 
   constructor(private route: ActivatedRoute,
              private formBuilder: FormBuilder,
@@ -19,7 +20,7 @@ export class HomePage implements OnInit{
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
       nivelEducativo: ['', Validators.required],
-      fechaNacimiento: ['']
+      fechaNacimiento: ['', Validators.required]
     })
   }
 
