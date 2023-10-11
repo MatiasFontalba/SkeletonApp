@@ -12,28 +12,26 @@
       <ion-title size="large">SkeletonApp</ion-title>
     </ion-toolbar>
   </ion-header>
-  <h1 style="text-align: center;">Bienvenido</h1>
+  <h1 class="title">Bienvenido</h1>
   <p style="padding-left: 5%;">Usuario: {{usuarioRecibido}}</p>
   <h3 style="text-align: center;">Informacion Adicional</h3>
 
     <form [formGroup]="datosForm">
       <ion-item>
-        <ion-input type="text" label="Nombre" labelPlacement="stacked" placeholder="Ingresa tu nombre" formControlName="nombre"></ion-input>
+        <ion-input class="input1" type="text" label="Nombre" labelPlacement="stacked" placeholder="Ingresa tu nombre" formControlName="nombre"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="text" label="Apellido" labelPlacement="stacked" placeholder="Ingresa tu apellido" formControlName="apellido"></ion-input>
+        <ion-input class="input2" type="text" label="Apellido" labelPlacement="stacked" placeholder="Ingresa tu apellido" formControlName="apellido"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-select formControlName="nivelEducativo" placeholder="Seleccionar"> Seleccione
-        <ion-label>Nivel Educativo</ion-label>
+        <ion-select formControlName="nivelEducativo" placeholder="Seleccionar nivel educaional"> Seleccione
         <ion-select-option value="Primaria">Basica</ion-select-option>
         <ion-select-option value="Secundaria">Media</ion-select-option>
         <ion-select-option value="Universidad">Superior</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Fecha de Nacimiento</ion-label>
-        <ion-input formControlName="fechaNacimiento" [(ngModel)]="fechaNacimiento" name="fechaNacimiento" type="date" placeholder="Ingrese su fecha de nacimiento" ngModel required></ion-input>
+        <ion-input label="Fecha Nacimiento" labelPlacement="stacked" displayFormat="MMM DD, YYYY" formControlName="fechaNacimiento" name="fechaNacimiento" type="date" placeholder="Ingrese su fecha de nacimiento" ></ion-input>
       </ion-item>
     </form>
     <ion-button expand="block" style="display: inline-block; padding-left: 30%; margin-right: 10%;" (click)="limpiarCampos()">Limpiar Campos</ion-button>
